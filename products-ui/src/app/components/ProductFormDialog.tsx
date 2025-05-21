@@ -40,19 +40,19 @@ export default function ProductFormDialog({ open, onClose, onSave, product }: Pr
 
     return (
         <Dialog open={open} onClose={onClose}>
-            <DialogTitle>{product ? 'Edit Product' : 'Add New Product'}</DialogTitle>
+            <DialogTitle>{product ? 'Editar Produto' : 'Adicionar Produto'}</DialogTitle>
             <DialogContent>
                 <TextField
                     autoFocus
                     margin="dense"
-                    label="Name"
+                    label="Nome"
                     value={name}
                     onChange={e => setName(e.target.value)}
                     fullWidth
                 />
                 <TextField
                     margin="dense"
-                    label="Price"
+                    label="Valor"
                     type="number"
                     value={price}
                     onChange={e => setPrice(parseFloat(e.target.value))}
@@ -60,7 +60,7 @@ export default function ProductFormDialog({ open, onClose, onSave, product }: Pr
                 />
                 <TextField
                     margin="dense"
-                    label="Stock"
+                    label="Quantidade"
                     type="number"
                     value={stock}
                     onChange={e => setStock(parseInt(e.target.value, 10))}

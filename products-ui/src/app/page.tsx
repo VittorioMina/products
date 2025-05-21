@@ -43,37 +43,6 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-
-        {/* <TableContainer className={styles.tableContainer} component={Paper}>
-            <Button variant="contained" onClick={openNew} style={{ marginBottom: 16 }}>
-              Adicionar Produto
-            </Button>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>ID</TableCell>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Price</TableCell>
-                  <TableCell>Stock</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {mockProducts.map(p => (
-                  <TableRow
-                    key={p.id}
-                    hover
-                    onClick={() => openEdit(p)}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <TableCell>{p.id}</TableCell>
-                    <TableCell>{p.name}</TableCell>
-                    <TableCell>{p.price}</TableCell>
-                    <TableCell>{p.stock}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer> */}
         {loading ? (
           <div className={styles.loading}>
             <CircularProgress />
@@ -87,9 +56,9 @@ export default function Home() {
               <TableHead>
                 <TableRow>
                   <TableCell>ID</TableCell>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Price</TableCell>
-                  <TableCell>Stock</TableCell>
+                  <TableCell>Nome</TableCell>
+                  <TableCell>Valor</TableCell>
+                  <TableCell>Quantidade</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -97,7 +66,7 @@ export default function Home() {
                   <TableRow key={p.id} hover onClick={() => openEdit(p)} style={{ cursor: 'pointer' }}>
                     <TableCell>{p.id}</TableCell>
                     <TableCell>{p.name}</TableCell>
-                    <TableCell>{p.price}</TableCell>
+                    <TableCell>R$ {p.price}</TableCell>
                     <TableCell>{p.stock}</TableCell>
                   </TableRow>
                 ))}
@@ -106,7 +75,7 @@ export default function Home() {
           </TableContainer>
 
         )}
-      
+
         <ProductFormDialog
           open={dialogOpen}
           onClose={() => setDialogOpen(false)}
