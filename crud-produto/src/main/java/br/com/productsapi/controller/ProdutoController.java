@@ -2,7 +2,10 @@ package br.com.productsapi.controller;
 
 import br.com.productsapi.model.Produto;
 import br.com.productsapi.service.ProdutoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +18,9 @@ public class ProdutoController {
     private ProdutoService service;
 
     @PostMapping
-    public Produto criar(@RequestBody Produto produto) {
-        return service.salvar(produto);
+    public ResponseEntity<Produto> salvar(@RequestBody @Valid Produto produto) {
+        Produto salvo = service.salvar(produto);
+        return new ResponseEntity<>(salvo, HttpStatus.CREATED);
     }
 
     @GetMapping
