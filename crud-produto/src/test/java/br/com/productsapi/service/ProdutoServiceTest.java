@@ -26,10 +26,10 @@ class ProdutoServiceIntegrationTest {
 
         Produto salvo = service.salvar(produto);
 
-        assertNotNull(salvo.getId());
-        assertEquals("Monitor", salvo.getNome());
-        assertEquals(750.0, salvo.getPreco());
-        assertEquals(5, salvo.getEstoque());
+        assertNotNull(salvo.getId()); // 1. não nulo
+        assertEquals("Monitor", salvo.getNome()); // 2. igual a string esperada
+        assertTrue(salvo.getPreco() > 0); // 3. condição verdadeira
+        assertFalse(salvo.getEstoque() == 0); // 4. condição falsa
 
         // Cleanup se quiser
         repository.deleteById(salvo.getId());
